@@ -75,7 +75,7 @@ def sault():
     center = [46.5277912, -84.3306842]
     map_ssm = folium.Map(location=center, zoom_start=14)
     title_html = '''
-                 <h3 align="center" style="font-size:20px"><b>Sault Ste. Marie Stores n' Malls</b></h3>
+                 <h3 align="center" style="font-size:20px; margin-top:0px"><b>Sault Ste. Marie Stores n' Malls</b></h3>
                  '''
     map_ssm.get_root().html.add_child(folium.Element(title_html))
   
