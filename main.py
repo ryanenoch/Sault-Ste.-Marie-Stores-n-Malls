@@ -1,9 +1,10 @@
 #Flask web app to plot locations of various grocery stores and shopping malls using Folium
 
 from flask import Flask
+import os
 
 app = Flask(__name__)
-
+server = app.server
 
 @app.route('/')
 def sault():
@@ -131,5 +132,6 @@ def sault():
 
     return map_ssm._repr_html_()
 
-
-app.run(host='0.0.0.0', port=8080)
+if __name__ == '__main__':
+    app.run_server(debug=True, port=os.getenv("PORT", default=5000))
+#app.run(host='0.0.0.0', port=8080)
