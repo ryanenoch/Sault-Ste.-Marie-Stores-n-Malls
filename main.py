@@ -9,6 +9,7 @@ app = Flask(__name__)
 def sault():
     import folium
     from folium import plugins
+    from folium.plugins import LocateControl
     import pandas as pd
     import json
 
