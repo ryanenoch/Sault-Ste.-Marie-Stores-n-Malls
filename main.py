@@ -114,6 +114,9 @@ def sault():
                                       localize=True),
     ).add_to(map_ssm)
 
+    #Adds option to show user location on map
+    LocateControl(auto_start=False).add_to(map_ssm)
+    
     #User can search for malls & stores within the main GeoJSON object using Search()
     main_search = plugins.Search(
         layer=main_obj,
