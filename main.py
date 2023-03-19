@@ -74,11 +74,9 @@ def sault():
         json.dump(geojson_main, output_file, indent=2)
 
     center = [46.5277912, -84.3306842]
-    map_ssm = folium.Map(location=center, zoom_start=14)
-    title_html = '''
-                 <h3 align="center" style="font-size:20px; margin-top:0px"><b>Sault Ste. Marie Stores n' Malls</b></h3>
-                 '''
-    map_ssm.get_root().html.add_child(folium.Element(title_html))
+    map_ssm = folium.Map(location=center, zoom_start=14,width='90%',height='100%',position='relative',trackResize=True,dragging=True)
+   
+    map_ssm.get_root().render()
   
     #setting up different icons & color for stores & malls
     #Link for icons - https://fontawesome.com/v4/
@@ -131,9 +129,10 @@ def sault():
     folium.LayerControl().add_to(map_ssm)
 
     #save map to html file
-    #map_sault.save('ssm.html')
+    map_ssm.save('templates/ssm.html')
 
-    return map_ssm._repr_html_()
+    #returns html file inside which the map is inserted
+    return render_template('main.html')
 
 if __name__ == '__main__':
     app.run_server(debug=True, port=os.getenv("PORT", default=5000))
