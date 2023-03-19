@@ -1,6 +1,6 @@
 #Flask web app to plot locations of various grocery stores and shopping malls using Folium
 
-from flask import Flask
+from flask import Flask, render_template
 import os
 
 app = Flask(__name__)
